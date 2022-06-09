@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block tweet %}
+<div>
+    <div>
+        <h2>Tweet Delete</h2>
+    </div>
+    <div>
+        <p>このツイートを削除しますか？</p>
+    </div>
+    <div>
+        <p>{{tweet.text}}</p>
+    </div>
+    <form action="{% url 'tweet:tweetdeletedjango' tweet.id %}" method="POST">
+        {% csrf_token %}
+        
+        <button type="submit" name="Confirm">削除</button>
+    </form>
+    <a href="{% url 'tweet:tweethome' %}">戻る</a>
+
+</div>
+{% endblock%}

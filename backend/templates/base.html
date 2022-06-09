@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-jp" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp" />
+        <meta name="viewport" content="width = device-width ,initial-scale = 1" />
+        <meta name="author" content="" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <title>ToWeet</title>
+        <meta itemprop="position" content="" />
+        <meta name="description" content="" />
+        <meta name="keyword" content="" />
+        <meta name="generator" content="notepad" />
+        <!-- <link type="text/css" href="style.css" rel="stylesheet"/> -->
+        <link
+        href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"> -->
+        <!-- <script src="main.js"></script> -->
+    </head>
+    <body>
+        <header class="container-fluid bg-primary">
+            <h1 class="text-white">ToWeet</h1>
+        </header>
+        <nav class="navbar">
+            {% if user.is_authenticated %}
+            <ul class="navbar">
+                <li class="nav-item">
+                    <a href="{% url 'accounts:logout'%}">ログアウト</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="navbar">
+                <li class="nav-item">
+                    <a href="{% url 'accounts:signup'%}">登録</a>
+                </li>
+            </ul>
+            <ul class="navbar">
+                <li class="nav-item">
+                    <a href="{% url 'accounts:login'%}">ログイン</a>
+                </li>
+            </ul>
+            {% endif %}
+        </nav>
+        <main class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-8">
+                    {% block tweet%}
+                    {% endblock %}
+                </div>
+                <div class="col"></div>
+            </div>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+</html>

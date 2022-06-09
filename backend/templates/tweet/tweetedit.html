@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block tweet %}
+<div>
+    <h2>Tweet Edit</h2>
+</div>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">修正</button>
+</form>
+<a href="{% url 'tweet:tweethome' %}">戻る</a>
+<div>
+    {% if form.errors %}
+        {% for error in form.non_field_errors%}
+            {{error}}
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
